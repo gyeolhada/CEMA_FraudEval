@@ -1,4 +1,4 @@
-## Substitute Models (substitute/) ##
+##Substitute Models (substitute/)
 These models are trained to approximate the black-box behavior of the victim classifier.
 
 Training process:
