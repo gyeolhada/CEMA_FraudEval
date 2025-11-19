@@ -1,23 +1,31 @@
-Core Implementation of CEMA
+# Core Implementation of CEMA
+
 This directory includes all scripts required to reproduce the CEMA adversarial attack pipeline.  
+
 The workflow follows the original paper’s three-stage methodology with adaptations for Chinese text.
 
-1. 01_build_auxiliary.py
+---
+
+# 1. 01_build_auxiliary.py
+
 Functions:
 - Select low-confidence samples from `trainResult.csv`
 - Clean and normalize text
 - Apply noise augmentation (filler words, punctuation, light perturbations)
 - Save processed auxiliary data to `data/auxiliary/`
 
-2. 02_train_substitute.py
+# 2. 02_train_substitute.py
+
 Functions:
 - Generate embeddings using MiniLM
 - Cluster embeddings with KMeans to create pseudo-labels
 - Train several RoBERTa-small models with different random seeds / sampling
 - Save models under `models/substitute/`
+
 This script can be run multiple times to grow the ensemble.
 
-3. 03_generate_candidates.py
+# 3. 03_generate_candidates.py
+
 Functions:
 - Perform word-level perturbations (Hotflip-like operations)
 - Perform token replacements using MaskedLM
@@ -26,7 +34,8 @@ Functions:
 - Rank candidates using cosine similarity from SBERT
 - Store generated candidates in `test_candidates.csv`
 
-4. 04_select_and_evaluate.py
+# 4. 04_select_and_evaluate.py
+
 Functions:
 - Use substitute model ensemble to compare predictions on original vs. adversarial text
 - Compute a weighted score:  
@@ -35,9 +44,10 @@ Functions:
 - Evaluate against the victim model
 - Output ASR, accuracy, and adversarial samples
 
-Execution Order
-1. `python 01_build_auxiliary.py`  
-2. `python 02_train_substitute.py`  
-3. `python 03_generate_candidates.py`  
-4. `python 04_select_and_evaluate.py`
+# Execution Order
+
+1. `python 01_build_auxiliary.py`
+3. `python 02_train_substitute.py`  
+4. `python 03_generate_candidates.py`  
+5. `python 04_select_and_evaluate.py`
 
