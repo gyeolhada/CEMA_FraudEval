@@ -40,7 +40,12 @@ The reproduction is adapted and extended for **Chinese fraud dialogue classifica
 # Project Structure
 
 CEMA_Fraud_Detection/
+
 │
+
 ├── data/ # Dataset and auxiliary samples
+
 ├── models/ # Substitute ensemble + victim model
+
 └── cema/ # Implementation of CEMA pipeline
+
