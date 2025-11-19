@@ -1,36 +1,43 @@
-CEMA Reproduction for Chinese Fraud Dialogue Detection
+Core Implementation of CEMA
+This directory includes all scripts required to reproduce the CEMA adversarial attack pipeline.  
+The workflow follows the original paper’s three-stage methodology with adaptations for Chinese text.
 
-This repository reproduces the Counterfactual Ensemble Model Attack (CEMA) framework described in:
-“Multi-task Adversarial Attacks against Black-box Model with Few-shot Queries” ( https://aclanthology.org/2025.acl-long.684/ )
-The reproduction is adapted and extended for Chinese fraud dialogue classification, with enhancements in data processing, candidate generation, and ensemble modeling.
+1. 01_build_auxiliary.py
+Functions:
+- Select low-confidence samples from `trainResult.csv`
+- Clean and normalize text
+- Apply noise augmentation (filler words, punctuation, light perturbations)
+- Save processed auxiliary data to `data/auxiliary/`
 
-Key Contributions of This Reproduction
-1. Full adaptation of CEMA to Chinese fraud dialogue detection  
-   Including preprocessing, data augmentation, and Chinese model training.
+2. 02_train_substitute.py
+Functions:
+- Generate embeddings using MiniLM
+- Cluster embeddings with KMeans to create pseudo-labels
+- Train several RoBERTa-small models with different random seeds / sampling
+- Save models under `models/substitute/`
+This script can be run multiple times to grow the ensemble.
 
-2. Enhanced auxiliary data construction  
-   Noise words (e.g., “maybe”, “probably”) and punctuation variations are added to improve substitute model robustness.
+3. 03_generate_candidates.py
+Functions:
+- Perform word-level perturbations (Hotflip-like operations)
+- Perform token replacements using MaskedLM
+- Generate sentence-level paraphrases via T5 (colloquial, vague, speculative)
+- Apply logic-based perturbations (prefixes, suffixes, hedging phrases)
+- Rank candidates using cosine similarity from SBERT
+- Store generated candidates in `test_candidates.csv`
 
-3. Improved substitute model ensemble  
-   - Chinese RoBERTa-small models  
-   - Different random seeds + sampling  
-   - Embedding-based pseudo-labels from MiniLM + KMeans
+4. 04_select_and_evaluate.py
+Functions:
+- Use substitute model ensemble to compare predictions on original vs. adversarial text
+- Compute a weighted score:  
+  `score = 0.6 * Δprediction + 0.4 * semantic_similarity`
+- Select the best adversarial candidate
+- Evaluate against the victim model
+- Output ASR, accuracy, and adversarial samples
 
-4. Richer adversarial candidate generation  
-   Extends the original Hotflip + paraphrasing + logic attacks with:
-   - MaskedLM token substitutions  
-   - Speculative / hedging logical prefixes  
-   - High-temperature T5 paraphrases  
-   - Semantic filtering using SBERT  
-
-5. Weighted scoring mechanism for better selection 
-   `score = 0.6 * ensemble_diff + 0.4 * semantic_similarity`  
-   Balances attack strength and semantic fidelity.
-
-6. Victim classifier replaced with a fine-tuned Chinese Longformer (110M)  
-   A realistic setting for fraud dialogue detection tasks.
-
----
-
-# 📁 Project Structure
+Execution Order
+1. `python 01_build_auxiliary.py`  
+2. `python 02_train_substitute.py`  
+3. `python 03_generate_candidates.py`  
+4. `python 04_select_and_evaluate.py`
 
