@@ -1,21 +1,16 @@
-##Substitute Models (substitute/)
+Substitute Models (substitute/)
 These models are trained to approximate the black-box behavior of the victim classifier.
-
 Training process:
 - Extract sentence embeddings using `all-MiniLM-L6-v2`
 - Generate pseudo-labels using KMeans clustering
 - Train several small Chinese RoBERTa models, each with different sampling and initialization
 - Store all models to build an ensemble
-
 Each sub_x directory contains all necessary files for one substitute model, and a total of 8 such models are included in the ensemble.
----
 
-## Victim Model (victim/)
+Victim Model (victim/)
 This directory stores the final classifier being attacked.
-
 In this reproduction:
-- **Chinese Longformer 110M** (fine-tuned) is used as the victim model.
-
+- Chinese Longformer 110M (fine-tuned) is used as the victim model.
 `04_select_and_evaluate.py` loads this model to compute:
 - Clean accuracy  
 - Adversarial accuracy  
