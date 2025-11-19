@@ -1,14 +1,12 @@
 # CEMA Reproduction for Chinese Fraud Dialogue Detection
 
 This repository reproduces the **Counterfactual Ensemble Model Attack (CEMA)** framework described in:
-
-**“Multi-task Adversarial Attacks against Black-box Model with Few-shot Queries” (ACL)**
-
+**“Multi-task Adversarial Attacks against Black-box Model with Few-shot Queries” (ACL)** (https://aclanthology.org/2025.acl-long.684/)
 The reproduction is adapted and extended for **Chinese fraud dialogue classification**, with enhancements in data processing, candidate generation, and ensemble modeling.
 
 ---
 
-# 🌟 Key Contributions of This Reproduction
+#  Key Contributions of This Reproduction
 
 1. **Full adaptation of CEMA to Chinese fraud dialogue detection**  
    Including preprocessing, data augmentation, and Chinese model training.
@@ -37,5 +35,10 @@ The reproduction is adapted and extended for **Chinese fraud dialogue classifica
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
+CEMA_Fraud_Detection/
+│
+├── data/ # Dataset and auxiliary samples
+├── models/ # Substitute ensemble + victim model
+└── cema/ # Implementation of CEMA pipeline
