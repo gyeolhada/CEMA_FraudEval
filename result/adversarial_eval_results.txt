@@ -1,0 +1,26 @@
+=== Evaluation on Adversarial Samples (CEMA-Enhanced Attacks) ===
+
+Model: Longformer-110M (fine-tuned)
+Clean Accuracy: 99.73%
+Adversarial Accuracy: 94.38%
+Accuracy Drop (ASR): 5.35%
+
+Model: Qwen-Turbo (zero-shot classification)
+Clean Accuracy: 73.65%
+Adversarial Accuracy: 62.58%
+Accuracy Drop (ASR): 11.07%
+
+Model: BERT-base
+Clean Accuracy: 70.18%
+Adversarial Accuracy: 61.07%
+Accuracy Drop (ASR): 9.11%
+
+Model: DistilBERT
+Clean Accuracy: 65.11%
+Adversarial Accuracy: 54.83%
+Accuracy Drop (ASR): 10.28%
+
+Summary:
+The adversarial samples generated using synonym replacement, paraphrasing, and logical insertion significantly reduce model accuracy. 
+Longformer-110M demonstrates the strongest robustness, with only a 5.35% drop, while Qwen-Turbo, BERT-base, and DistilBERT exhibit substantially higher vulnerability. 
+This confirms that multi-strategy adversarial perturbations effectively transfer to multiple model architectures in fraud dialogue classification.
