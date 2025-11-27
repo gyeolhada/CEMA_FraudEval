@@ -43,9 +43,11 @@ CEMA_Fraud_Detection/
 
 │
 
-├── data/ # Dataset and auxiliary samples
+├── data/ # Dataset and output files
 
 ├── models/ # Substitute ensemble + victim model
 
-└── cema/ # Implementation of CEMA pipeline
+├── cema/ # Implementation of CEMA pipeline
+
+└── result/ # Additional result files
 
