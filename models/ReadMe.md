@@ -22,3 +22,15 @@ In this reproduction:
 - Clean accuracy  
 - Adversarial accuracy  
 - Attack Success Rate (ASR)
+
+---
+
+# Note on Missing Checkpoint Files
+
+The files model.safetensors and optimizer.pt inside victim/checkpoint2694/ directory are not included in this repository because their sizes exceed GitHub’s upload limits.
+
+Similarly, the model.safetensors file in three victim directories is also too large to be uploaded.
+
+However, the Chinese Longformer 110M (fine-tuned) victim model can be fully retrained and reproduced using the script: cema/04_select_evaluate.py and the BERT-base(hfl/chinese-bert-wwm-ext) and DistilBERT(hfl/rbt6) also can be fully retrained and reproduced using the script: cema/train_bert_model.py.
+
+This script will automatically train and generate the required checkpoints, though the training process may take a considerable amount of time depending on your hardware.
