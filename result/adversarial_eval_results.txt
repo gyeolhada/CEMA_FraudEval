@@ -10,12 +10,12 @@ Clean Accuracy: 94.93%
 Adversarial Accuracy: 83.52%
 Accuracy Drop (ASR): 11.41%
 
-Model: BERT-base
+Model: BERT-base（hfl/chinese-bert-wwm-ext）
 Clean Accuracy: 99.06%
 Adversarial Accuracy: 91.72%
 Accuracy Drop (ASR): 7.34%
 
-Model: DistilBERT
+Model: DistilBERT（hfl/rbt6）
 Clean Accuracy: 98.46%
 Adversarial Accuracy: 90.70%
 Accuracy Drop (ASR): 7.76%
