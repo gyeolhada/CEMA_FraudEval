@@ -1,17 +1,16 @@
 === Evaluation on Clean (Original) Test Set ===
 
 Model: Longformer-110M (fine-tuned)
-Accuracy: 99.73%
+Accuracy: 99.72%
 
 Model: Qwen-Turbo (zero-shot classification)
-Accuracy: 73.65%
+Accuracy: 94.93%
 
-Model: BERT-base
-Accuracy: 70.18%
+Model: BERT-base（hfl/chinese-bert-wwm-ext）
+Accuracy: 99.06%
 
-Model: DistilBERT
-Accuracy: 65.11%
+Model: DistilBERT（hfl/rbt6）
+Accuracy: 98.46%
 
 Summary:
-The fine-tuned Longformer-110M achieves the highest performance on the clean dataset due to its ability to handle long-range dependencies in multi-turn fraud dialogues. 
-In contrast, general LLMs (Qwen-Turbo) and traditional Transformers (BERT-based models) show significantly lower performance, primarily due to token length limits and lack of task-specific optimization.
+The fine-tuned Longformer-110M achieves the highest performance on the clean dataset due to its ability to handle long-range dependencies in multi-turn fraud dialogues. Traditional Transformers (BERT-based models) show fine performance and LLMs (Qwen-Turbo) show lower performance.
