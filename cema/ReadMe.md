@@ -44,6 +44,12 @@ Functions:
 - Evaluate against the victim model
 - Output ASR, accuracy, and adversarial samples
 
+# 5. train_bert_model.py
+
+Functions:
+- train victim : Bert (hfl/chinese-bert-wwm-ext)
+- train victim : DistillBert (hfl/rbt6)
+
 ---
 
 # Execution Order
