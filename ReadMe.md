@@ -43,11 +43,11 @@ CEMA_Fraud_Detection/
 
 │
 
-├── data/ # Dataset and output files
+├── data/ # Dataset and some output files
 
 ├── models/ # Substitute ensemble + victim model
 
 ├── cema/ # Implementation of CEMA pipeline
 
-└── result/ # Additional result files
+└── result/ # Final output files and additional result files
 
