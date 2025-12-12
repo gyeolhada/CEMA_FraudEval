@@ -2,19 +2,19 @@
 
 Model: Longformer-110M
 ---------------------------------
-No Attack Accuracy: 99.73%
+No Attack Accuracy: 99.72%
 Synonym-only Accuracy: 97.85%
 Paraphrase-only Accuracy: 95.92%
 Logic-insertion Accuracy: 96.88%
-Three-strategy Combined Accuracy: 94.38%
+Three-strategy Combined Accuracy: 94.62%
 
 Model: BERT-base
 ---------------------------------
-No Attack Accuracy: 70.18%
-Synonym-only Accuracy: 64.42%
-Paraphrase-only Accuracy: 62.11%
-Logic-insertion Accuracy: 63.05%
-Three-strategy Combined Accuracy: 61.07%
+No Attack Accuracy: 99.06%
+Synonym-only Accuracy: 97.42%
+Paraphrase-only Accuracy: 92.11%
+Logic-insertion Accuracy: 95.05%
+Three-strategy Combined Accuracy: 91.72%
 
 Summary:
 - Paraphrasing causes the largest accuracy drop for both models.
