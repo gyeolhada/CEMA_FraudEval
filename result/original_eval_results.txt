@@ -14,5 +14,4 @@ Accuracy: 98.46%
 
 Summary:
 The fine-tuned Longformer-110M achieves the highest performance on the clean dataset due to its ability to handle long-range dependencies in multi-turn fraud dialogues.
-
 Traditional Transformers (BERT-based models) show fine performance and LLMs (Qwen-Turbo) show lower performance.
