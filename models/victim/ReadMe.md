@@ -2,7 +2,7 @@
 
 The files model.safetensors and optimizer.pt inside checkpoint2694/ directory are not included in this repository because their sizes exceed GitHub’s upload limits.
 
-Similarly, the model.safetensors file in victim directory is also too large to be uploaded.
+Similarly, the model.safetensors file in three victim directories is also too large to be uploaded.
 
 However, the victim model can be fully retrained and reproduced using the script: cema/04_select_evaluate.py
 
